@@ -29,8 +29,6 @@ USAGE
 <!-- usagestop -->
 # Commands
 <!-- commands -->
-* [`tasks hello PERSON`](#tasks-hello-person)
-* [`tasks hello world`](#tasks-hello-world)
 * [`tasks help [COMMAND]`](#tasks-help-command)
 * [`tasks plugins`](#tasks-plugins)
 * [`tasks plugins:install PLUGIN...`](#tasks-pluginsinstall-plugin)
@@ -41,46 +39,8 @@ USAGE
 * [`tasks plugins:uninstall PLUGIN...`](#tasks-pluginsuninstall-plugin-1)
 * [`tasks plugins:uninstall PLUGIN...`](#tasks-pluginsuninstall-plugin-2)
 * [`tasks plugins update`](#tasks-plugins-update)
-
-## `tasks hello PERSON`
-
-Say hello
-
-```
-USAGE
-  $ tasks hello [PERSON] -f <value>
-
-ARGUMENTS
-  PERSON  Person to say hello to
-
-FLAGS
-  -f, --from=<value>  (required) Whom is saying hello
-
-DESCRIPTION
-  Say hello
-
-EXAMPLES
-  $ oex hello friend --from oclif
-  hello friend from oclif! (./src/commands/hello/index.ts)
-```
-
-_See code: [dist/commands/hello/index.ts](https://github.com/julianduque/tasks-cli/blob/v0.0.0/dist/commands/hello/index.ts)_
-
-## `tasks hello world`
-
-Say hello world
-
-```
-USAGE
-  $ tasks hello world
-
-DESCRIPTION
-  Say hello world
-
-EXAMPLES
-  $ oex hello world
-  hello world! (./src/commands/hello/world.ts)
-```
+* [`tasks tasks list [FILE]`](#tasks-tasks-list-file)
+* [`tasks tasks new SUBJECT [COMMENT]`](#tasks-tasks-new-subject-comment)
 
 ## `tasks help [COMMAND]`
 
@@ -330,5 +290,45 @@ FLAGS
 
 DESCRIPTION
   Update installed plugins.
+```
+
+## `tasks tasks list [FILE]`
+
+describe the command here
+
+```
+USAGE
+  $ tasks tasks list [FILE] [-n <value>] [-f]
+
+FLAGS
+  -f, --force
+  -n, --name=<value>  name to print
+
+DESCRIPTION
+  describe the command here
+
+EXAMPLES
+  $ tasks tasks list
+```
+
+## `tasks tasks new SUBJECT [COMMENT]`
+
+Create a new Salesforce Task
+
+```
+USAGE
+  $ tasks tasks new [SUBJECT] [COMMENT] [-p <value>] [-s <value>]
+
+FLAGS
+  -p, --priority=<value>  [default: Normal] Priority of the task
+  -s, --status=<value>    [default: Not Started] Status of the task
+
+DESCRIPTION
+  Create a new Salesforce Task
+
+EXAMPLES
+  $ tasks tasks new "Email" --priority "Normal" --status "Not Started"
+
+  $ tasks tasks new "Call" "This is a comment" --priority "Urgent" -s "Not Started"
 ```
 <!-- commandsstop -->
