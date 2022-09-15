@@ -19,7 +19,7 @@
   "dependencies": {
     "@oclif/core": "^1.13.10",
     "@oclif/plugin-help": "^5",
-    "@oclif/plugin-plugins": "^2.0.1",
+    "@oclif/plugin-plugins": "^2.1.0",
     "better-sqlite3": "^7.6.2",
     "inquirer": "^9.1.1"
   },
