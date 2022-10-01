@@ -21,13 +21,13 @@
     "@oclif/plugin-help": "^5",
     "@oclif/plugin-plugins": "^2.0.1",
     "better-sqlite3": "^7.6.2",
-    "inquirer": "^9.1.1"
+    "inquirer": "^9.1.2"
   },
   "devDependencies": {
     "@oclif/test": "^2",
     "@types/better-sqlite3": "^7.6.0",
     "@types/chai": "^4",
-    "@types/inquirer": "^9.0.1",
+    "@types/inquirer": "^9.0.2",
     "@types/mocha": "^9.0.0",
     "@types/node": "^16.9.4",
     "chai": "^4",
