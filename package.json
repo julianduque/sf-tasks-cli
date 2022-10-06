@@ -20,8 +20,10 @@
     "@oclif/core": "^1.13.10",
     "@oclif/plugin-help": "^5",
     "@oclif/plugin-plugins": "^2.0.1",
+    "@salesforce/core": "^3.30.10",
+    "@salesforce/plugin-auth": "^2.2.13",
     "better-sqlite3": "^7.6.2",
-    "inquirer": "^9.1.1"
+    "inquirer": "^8.2.4"
   },
   "devDependencies": {
     "@oclif/test": "^2",
@@ -48,7 +50,8 @@
     "commands": "./dist/commands",
     "plugins": [
       "@oclif/plugin-help",
-      "@oclif/plugin-plugins"
+      "@oclif/plugin-plugins",
+      "@salesforce/plugin-auth"
     ],
     "topicSeparator": " ",
     "topics": {

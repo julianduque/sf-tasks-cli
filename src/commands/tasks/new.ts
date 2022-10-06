@@ -1,9 +1,12 @@
-import {Command, Flags, CliUx} from '@oclif/core'
+import {Command, Flags} from '@oclif/core'
+import inquirer from 'inquirer'
 import TasksDb from '../../lib/tasks-db'
 import {Task} from '../../lib/task'
 
 export default class TasksNew extends Command {
   #db = new TasksDb(this.config.dataDir)
+
+  static aliases = ['new', 'create']
 
   static description = 'Create a new Salesforce Task'
 
@@ -29,7 +32,13 @@ export default class TasksNew extends Command {
     const {args, flags} = await this.parse(TasksNew)
     let subject = args.subject
     if (!subject) {
-      subject = await CliUx.ux.prompt('What is the subject of your task?')
+      const result = await inquirer.prompt([{
+        type: 'list',
+        name: 'subject',
+        message: 'What is the subject of your task?',
+        choices: ['Call', 'Email', 'Send Letter', 'Send Quote', 'Other'],
+      }])
+      subject = result.subject
     }
 
     const task : Task = {
