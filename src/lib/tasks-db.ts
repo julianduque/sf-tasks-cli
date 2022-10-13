@@ -19,6 +19,7 @@ export default class TasksDb {
     this.#client.exec(`
       CREATE TABLE IF NOT EXISTS tasks (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
+        sfid TEXT NULL,
         subject TEXT NOT NULL,
         priority TEXT NOT NULL,
         status TEXT NOT NULL,
@@ -29,17 +30,46 @@ export default class TasksDb {
 
   createTask(task: Task): Task {
     const stmt = this.#client.prepare(`
-      INSERT INTO tasks (subject, priority, status, comment)
-      VALUES (@subject, @priority, @status, @comment)
+      INSERT INTO tasks (subject, priority, status, comment, sfid)
+      VALUES (@subject, @priority, @status, @comment, @sfid)
     `)
 
     const info = stmt.run(task)
     return {...task, id: info.lastInsertRowid}
   }
 
+  updateTask(task: Task): Task {
+    const stmt = this.#client.prepare(`
+      UPDATE tasks
+      SET subject = @subject,
+          priority = @priority,
+          status = @status,
+          comment = @comment,
+          sfid = @sfid
+      WHERE id = @id
+    `)
+    stmt.run(task)
+    return task
+  }
+
   listTasks(): Task[] {
     const stmt = this.#client.prepare('SELECT * FROM tasks')
     return stmt.all() as Task[]
+  }
+
+  listLocalTasks(): Task[] {
+    const stmt = this.#client.prepare('SELECT * FROM tasks WHERE sfid IS NULL')
+    return stmt.all() as Task[]
+  }
+
+  getTaskBySfid(sfid: string | undefined): Task | null {
+    const stmt = this.#client.prepare('SELECT * FROM tasks WHERE sfid = ?')
+    return stmt.get(sfid) as Task | null
+  }
+
+  deleteTask(id: number | bigint | undefined): void {
+    const stmt = this.#client.prepare('DELETE FROM tasks WHERE id = ?')
+    stmt.run(id)
   }
 
   /*

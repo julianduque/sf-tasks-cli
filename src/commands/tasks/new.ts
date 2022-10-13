@@ -46,6 +46,7 @@ export default class TasksNew extends Command {
       priority: flags.priority,
       status: flags.status,
       comment: args.comment || '',
+      sfid: null,
     }
 
     const {id} = this.#db.createTask(task)

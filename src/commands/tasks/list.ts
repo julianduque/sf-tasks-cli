@@ -31,6 +31,11 @@ export default class TasksList extends Command {
       comment: {
         extended: true,
       },
+      sfid: {
+        header: 'Synced',
+        get: (row: Task) => row.sfid ? `Yes (${row.sfid})` : 'No',
+        extended: true,
+      },
     }, {
       printLine: this.log.bind(this),
       ...flags,
