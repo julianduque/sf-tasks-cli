@@ -2,7 +2,7 @@
   "name": "@julianduque/tasks-cli",
   "version": "0.0.0",
   "description": "A Salesforce Tasks CLI Tool",
-  "author": "Julian Duque @julianduque",
+  "author": "Julian Duque <@julianduque>",
   "bin": {
     "tasks": "./bin/run"
   },
@@ -55,8 +55,8 @@
     ],
     "topicSeparator": " ",
     "topics": {
-      "hello": {
-        "description": "Say hello to the world and others"
+      "tasks": {
+        "description": "Manage your tasks locally and sync with Salesforce"
       }
     }
   },
