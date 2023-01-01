@@ -20,7 +20,7 @@
     "@oclif/core": "^1.13.10",
     "@oclif/plugin-help": "^5",
     "@oclif/plugin-plugins": "^2.0.1",
-    "@salesforce/core": "^3.30.10",
+    "@salesforce/core": "^3.32.12",
     "@salesforce/plugin-auth": "^2.2.13",
     "better-sqlite3": "^7.6.2",
     "inquirer": "^8.2.4"
